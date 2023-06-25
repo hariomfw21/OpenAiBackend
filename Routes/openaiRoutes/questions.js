@@ -12,7 +12,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-OpenAiQuestion.get("/:section", async (req, res) => {
+OpenAiQuestion.get("/:section", auth, async (req, res) => {
   const { section } = req.params;
   const chat_completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",

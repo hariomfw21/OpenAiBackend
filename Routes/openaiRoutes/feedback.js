@@ -12,7 +12,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-openAiFeedback.post("/feedback", async (req, res) => {
+openAiFeedback.post("/feedback",auth, async (req, res) => {
   const { Question, Answer } = req.body;
   if (!Answer) {
     res.send({
